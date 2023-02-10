@@ -10,6 +10,12 @@ require('dotenv').config()
 
 const app = express() 
 
+//DB
+ mongoose.set('strictQuery', true);
+mongoose.connect(process.env.DATABASE_CLOUD,{useNewUrlParser:true})
+.then(()=>console.log('DB CONNECTED'))
+.catch((ERR)=>console.log(ERR))
+
 
 //Routesn  
 const authRoutes = require('./routes/auth')
